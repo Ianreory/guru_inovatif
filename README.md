@@ -1,3 +1,37 @@
+
+Jalankan aplikasi ini dengan dua terminal:
+
+1. php artisan serve: Untuk menjalankan server Laravel.
+2. npm run dev: Untuk menjalankan proses build menggunakan Tailwind CSS.
+
+Hal ini diperlukan karena aplikasi ini menggunakan Tailwind CSS serta library Material Tailwind.
+
+
+Sistem monitoring ini memiliki dua tampilan utama:
+
+1. Tampilan CRUD: Tampilan ini digunakan untuk mengelola data, seperti menambah, mengedit, dan menghapus data.
+2. Tampilan Progres: Tampilan ini digunakan untuk memantau perkembangan atau progres aplikasi.
+Berikut adalah tampilan dari CRUD.
+
+![alt text](image.png)
+
+dan berikut adalah tampilan untuk progres
+
+![alt text](image-1.png)
+
+
+Pada tiga ikon ini:
+
+Ikon paling kiri adalah tombol Detail, yang akan mengarahkan pengguna ke tampilan progres.
+Ikon tengah adalah tombol Update, yang akan membawa pengguna ke halaman update data.
+Ikon paling kanan adalah tombol Delete, yang digunakan untuk menghapus data.
+
+![alt text](image-2.png)
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

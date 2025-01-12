@@ -43,7 +43,6 @@ class MonitoringController extends Controller
             'client' => 'required|string|max:255',
             'name_leader' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'photo_leader' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
 
