@@ -1,8 +1,11 @@
 
 Jalankan aplikasi ini dengan dua terminal:
 
+Jalankan terlebih dahulu npm install
+
 1. php artisan serve: Untuk menjalankan server Laravel.
 2. npm run dev: Untuk menjalankan proses build menggunakan Tailwind CSS.
+
 
 Hal ini diperlukan karena aplikasi ini menggunakan Tailwind CSS serta library Material Tailwind.
 
