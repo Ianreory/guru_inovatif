@@ -74,11 +74,13 @@
         </h1>
     </div>
     <div class="px-9 pt-8">
-        <button data-dialog-target="create-modal"
-            class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
-            type="button">
-            Create Project
-        </button>
+        <a href="{{ route('data.create') }}">
+            <button
+                class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+                type="button">
+                Create Project
+            </button>
+        </a>
     </div>
     <div class="mx-auto w-full px-9 ">
         <div class="w-full flex justify-between items-center mb-3 mt-1 pl-3">
@@ -235,7 +237,7 @@
         </div>
     </div>
 
-    {{-- modal Cretae Project --}}
+    {{-- modal Cretae Project
     <div data-dialog-backdrop="create-modal" data-dialog-backdrop-close="true"
         class="pointer-events-none fixed inset-0 z-[999] grid h-screen w-screen place-items-center bg-black bg-opacity-60 opacity-0 backdrop-blur-sm transition-opacity duration-300">
         <div data-dialog="create-modal"
@@ -316,7 +318,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- alert berhasil --}}
     <div id="alert"

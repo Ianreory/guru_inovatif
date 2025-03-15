@@ -36,6 +36,11 @@ class MonitoringController extends Controller
         return view('data.update', compact('progres'));
     }
 
+    public function create()
+    {
+        return view('data.create');
+    }
+
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
@@ -90,6 +95,7 @@ class MonitoringController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'projek_name' => 'required|string|max:255',
             'client' => 'required|string|max:255',
@@ -159,12 +165,9 @@ class MonitoringController extends Controller
             'progres' => json_encode($defaultProgres),
         ]);
 
+        alert()->success('progres berhasil ditambahkan');
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Data berhasil ditambahkan',
-            'data' => $monitoring
-        ]);
+        return redirect()->route('data.index')->with('success', 'Data berhasil ditambahkan.');
     }
 
 
@@ -219,7 +222,7 @@ class MonitoringController extends Controller
      */
     public function destroy($id)
     {
-     
+
         $monitoring = Monitoring::find($id);
 
         if ($monitoring && $monitoring->photo_leader) {
@@ -227,7 +230,7 @@ class MonitoringController extends Controller
             Storage::disk('public')->delete('photos/' . $monitoring->photo_leader);
         }
 
-    
+
         if ($monitoring) {
             $monitoring->delete();
             alert()->success('Data berhasil dihapus');

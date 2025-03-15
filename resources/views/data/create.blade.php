@@ -75,69 +75,86 @@
 
     <div class="flex justify-center mt-8">
         <div class="relative flex w-full max-w-[40rem] flex-col rounded-lg bg-white border border-slate-200 shadow-sm">
-            <form action="{{ route('data.update', $progres->id) }}" method="post" id="projectForm">
+            <form action="{{ route('data.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="relative m-2.5 items-center flex justify-center text-white h-24 rounded-md bg-slate-800">
-                    <h3 class="text-2xl">Edit Project</h3>
+                    <h3 class="text-2xl">Create Project</h3>
                 </div>
                 <div class="flex flex-col gap-4 p-6">
-                    <div class="w-full ">
+                    <div class="w-full">
                         <label class="block mb-2 text-sm text-slate-600">Project Name</label>
                         <input type="text" name="projek_name"
                             class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                            placeholder="Input Project" value="{{ $progres->projek_name }}" />
+                            placeholder="Input Project" />
+                        @error('projek_name')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
-                    <div class="w-full ">
+                    <div class="w-full">
                         <label class="block mb-2 text-sm text-slate-600">Client</label>
                         <input type="text" name="client"
                             class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                            placeholder="Input Client" value="{{ $progres->client }}" />
+                            placeholder="Input Client" />
+                        @error('client')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="flex justify-center">
                         <h1 class="text-lg font-semibold text-black">Project Leader</h1>
                     </div>
 
-                    <div class="w-full ">
+                    <div class="w-full">
                         <label class="block mb-2 text-sm text-slate-600">Name of Leader</label>
                         <input type="text" name="name_leader"
                             class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                            placeholder="Input Name of Leader" value="{{ $progres->name_leader }}" />
+                            placeholder="Input Name of Leader" />
+                        @error('name_leader')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
-                    <div class="w-full ">
+                    <div class="w-full">
                         <label class="block mb-2 text-sm text-slate-600">Email</label>
                         <input type="email" name="email"
                             class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                            placeholder="Input Email" value="{{ $progres->email }}" />
+                            placeholder="Input Email" />
+                        @error('email')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
-                    <div class="w-full ">
+                    <div class="w-full">
                         <label class="block mb-2 text-sm text-slate-600">Photo of Leader</label>
                         <input type="file" name="photo_leader"
-                            class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                            placeholder="Input Photo" />
+                            class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" />
+                        @error('photo_leader')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="flex justify-center">
                         <h1 class="text-lg font-semibold text-black">Date Project</h1>
                     </div>
 
-                    <div class="w-full ">
+                    <div class="w-full">
                         <label class="block mb-2 text-sm text-slate-600">Start Date</label>
                         <input type="date" name="start_date"
-                            class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                            placeholder="Input Start Date" value="{{ $progres->start_date }}" />
+                            class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" />
+                        @error('start_date')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
-                    <div class="w-full ">
+                    <div class="w-full">
                         <label class="block mb-2 text-sm text-slate-600">End Date</label>
                         <input type="date" name="ent_date"
-                            class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                            placeholder="Input End Date" value="{{ $progres->ent_date }}" />
+                            class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" />
+                        @error('ent_date')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
-
                 </div>
 
                 <div class="p-6 pt-0 flex items-center justify-start gap-2">

@@ -84,16 +84,24 @@
             </div>
         </div>
     </div>
-
-    <div class="mx-auto px-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-center">
+    <div class="flex justify-start m-10">
+        <a href="/">
+            <button
+                class="max-w-80 rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button">
+                back to list
+            </button>
+        </a>
+    </div>
+    <div class="mx-auto px-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-center items-stretch">
         @foreach ($progresdata as $index => $task)
-            <div class="cursor-pointer group relative flex flex-col my-4 bg-white shadow-sm border border-slate-200 rounded-lg hover:shadow-lg transition-shadow duration-300"
+            <div class="cursor-pointer group relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg hover:shadow-lg transition-shadow duration-300 min-h-[300px]"
                 id="task-{{ $task['id'] }}">
                 <div class="relative w-full aspect-[4/3] overflow-hidden text-white rounded-t-md">
                     <img class="w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.25, 1, 0.5, 1)] transform group-hover:scale-110"
                         src="{{ asset('image/progres.png') }}" alt="investment-seed-round" />
                 </div>
-                <div class="p-3">
+                <div class="p-3 flex-grow">
                     <h6 class="mb-2 text-lg font-semibold {{ $task['status'] === true ? 'text-green-800' : 'text-red-600' }}"
                         id="status-{{ $task['id'] }}">
                         {{ $task['status'] === true ? 'Done' : 'On Progress' }}
@@ -102,8 +110,7 @@
                         Tugas Progres Membuat {{ $task['name'] }}
                     </p>
                 </div>
-                <div class="px-3 pb-3 pt-0 mt-2">
-                    <!-- Form untuk mengirimkan status ke server -->
+                <div class="px-3 pb-3 pt-0 mt-auto">
                     <form action="{{ route('progresuser.update') }}" method="POST">
                         @csrf
                         <input type="hidden" name="id" value="{{ $task['id'] }}">
@@ -111,7 +118,7 @@
                         <input type="hidden" name="status" value="{{ $task['status'] === true ? 'false' : 'true' }}">
 
                         <button
-                            class="rounded-md w-full py-2 px-4 border border-transparent text-white text-center text-sm {{ $task['status'] === true ? 'bg-gray-700' : 'bg-gray-700' }}"
+                            class="rounded-md w-full py-2 px-4 border border-transparent text-white text-center text-sm bg-gray-700"
                             type="submit">
                             {{ $task['status'] === true ? 'Cancel' : 'Action' }}
                         </button>
@@ -119,9 +126,8 @@
                 </div>
             </div>
         @endforeach
-
-
     </div>
+
 
 
     <!-- from cdn -->
